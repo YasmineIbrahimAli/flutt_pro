@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../resources/assets_app.dart';
+import 'my_wishlist_screen.dart';
 
 class ReviewsScreen extends StatelessWidget {
   const ReviewsScreen({Key? key}) : super(key: key);
@@ -73,7 +74,12 @@ class ReviewsScreen extends StatelessWidget {
                   ],
                 ),
                 ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => WishlistScreen()),
+                    );
+                  },
                   icon: Icon(Icons.add, color: Colors.white),
                   label: Text(
                     'Add Review',
