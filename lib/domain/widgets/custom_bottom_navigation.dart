@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+
+import '../../presentaion/main_view/home/home_screen.dart';
+import '../../presentaion/main_view/wishlist/my_wishlist_screen.dart';
 
 class CustomBottomNavigation extends StatefulWidget {
   const CustomBottomNavigation({Key? key}) : super(key: key);
@@ -18,16 +20,28 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
 
     switch (index) {
       case 0:
-        context.go('/homeView');
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
         break;
       case 1:
-        context.go('/wishlist');
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => WishlistScreen()),
+        );
         break;
       case 2:
-        context.go('/cart');
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => CartPage()),
+        );
         break;
       case 3:
-        context.go('/wallet');
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => WalletPage()),
+        );
         break;
     }
   }
@@ -51,9 +65,7 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
         ),
         BottomNavigationBarItem(
           icon: Icon(
-            _selectedIndex == 1
-                ? Icons.favorite
-                : Icons.favorite_border, 
+            _selectedIndex == 1 ? Icons.favorite : Icons.favorite_border,
             color: _selectedIndex == 1 ? Color(0xff9775FA) : Colors.grey,
           ),
           label: 'Wishlist',
@@ -73,6 +85,26 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
           label: 'Wallet',
         ),
       ],
+    );
+  }
+}
+
+class CartPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Cart')),
+      body: Center(child: Text('Cart Page')),
+    );
+  }
+}
+
+class WalletPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Wallet')),
+      body: Center(child: Text('Wallet Page')),
     );
   }
 }

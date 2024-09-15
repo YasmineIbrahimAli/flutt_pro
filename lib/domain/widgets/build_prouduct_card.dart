@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
-
+import '../../presentaion/main_view/home/proudect_details_screen.dart';
 import '../../presentaion/resources/assets_app.dart';
 import '../data/gride_view_model.dart';
 
@@ -60,7 +58,12 @@ class _CustomProductGridState extends State<CustomProductGrid> {
             setState(() {
               item.isFavorite = !item.isFavorite;
             });
-            context.push('/productDetail', extra: item);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductDetailScreen(item: item),
+              ),
+            );
           },
           child: Card(
             child: Stack(
@@ -99,11 +102,10 @@ class _CustomProductGridState extends State<CustomProductGrid> {
                   top: -5.0,
                   right: 5.0,
                   child: IconButton(
-                    icon: SvgPicture.asset(
-                      AssetData.faciourate,
-                      width: 24.0,
-                      height: 24.0,
+                    icon: Icon(
+                      item.isFavorite ? Icons.favorite : Icons.favorite_border,
                       color: item.isFavorite ? Colors.red : Colors.grey,
+                      size: 24.0,
                     ),
                     onPressed: () {
                       setState(() {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mindset_final_project/presentaion/resources/assets_app.dart';
 import '../../../domain/data/gride_view_model.dart';
 import '../../../domain/widgets/custom_card_screen2.dart';
 import '../../../domain/widgets/custom_text_rich.dart';
 import '../../../domain/widgets/custom_two_bottom.dart';
+import '../../resources/assets_app.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   final GridViewModel item;

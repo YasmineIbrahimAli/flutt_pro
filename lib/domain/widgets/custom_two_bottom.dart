@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'custom_bottom_navigation.dart';
+
 class CustomTwoBoutton extends StatelessWidget {
   const CustomTwoBoutton({
     super.key,
@@ -13,7 +15,12 @@ class CustomTwoBoutton extends StatelessWidget {
       child: Column(
         children: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CartPage()),
+              );
+            },
             child: Container(
               height: 70.h,
               width: 370.w,
